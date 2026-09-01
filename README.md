@@ -17,7 +17,7 @@ A full-stack cybersecurity extension that evaluates URL threats in real-time. It
 
 ## 🚀 System Architecture
 
-mermaid
+```mermaid
 sequenceDiagram
     actor User
     participant Chrome Ext
