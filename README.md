@@ -81,7 +81,7 @@ VIRUSTOTAL_API_KEY=your_actual_virustotal_api_key
 uvicorn main:app --reload
 ```
 
-2. Chrome Extension Setup
+### 2. Chrome Extension Setup
 Open Google Chrome and navigate to chrome://extensions/.
 
 Enable Developer mode (toggle at the top-right corner).
