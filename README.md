@@ -17,7 +17,7 @@ A full-stack cybersecurity extension that evaluates URL threats in real-time. It
 
 ## 🚀 System Architecture
 
-```mermaid
+mermaid
 sequenceDiagram
     actor User
     participant Chrome Ext
@@ -25,7 +25,7 @@ sequenceDiagram
     participant VirusTotal API
     participant OpenAI API
 
-    User->>Chrome Ext: Clicks "Scan This Page"
+User->>Chrome Ext: Clicks "Scan This Page"
     Chrome Ext->>FastAPI Backend: POST /api/v1/scan {url}
     FastAPI Backend->>FastAPI Backend: Extract Lexical Features
     FastAPI Backend->>VirusTotal API: Query Threat Database
