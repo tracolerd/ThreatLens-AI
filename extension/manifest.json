@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "ThreatLens-AI",
+    "version": "1.0.0",
+    "description": "AI-Powered Phishing & Malicious URL Scanner",
+    "permissions": [
+        "activeTab",
+        "tabs"
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+    }
+}
