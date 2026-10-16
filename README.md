@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:071B20,50:0F766E,100:0B1220&height=190&section=header&text=ThreatLens%20AI&fontSize=42&fontColor=F1F5F9&fontAlignY=38&animation=fadeIn&desc=A%20multi-signal%20phishing%20and%20malicious%20URL%20scanning%20prototype&descAlignY=61&descSize=15" alt="ThreatLens AI animated project banner" width="100%" />
+</p>
+
 <div align="center">
 
 # 🛡️ ThreatLens-AI
@@ -113,3 +117,12 @@ POST /api/v1/scan
 
 🔒 Security & Privacy Notice
 Note: URLs sent to the backend are evaluated transiently and are strictly not stored in any database. Sensitive query parameters are stripped during heuristic extraction to preserve user privacy.
+
+---
+
+## Author & Development
+
+**Project author and solo developer:** [Nurul Faiyaz](https://github.com/tracolerd).
+
+This project is independently developed and maintained by Nurul Faiyaz. AI-assisted tools may be used as part of the development workflow; the project author remains responsible for technical decisions, code review, validation, and maintenance.
+
