@@ -1,6 +1,8 @@
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:071B20,50:0F766E,100:0B1220&height=190&section=header&text=ThreatLens%20AI&fontSize=42&fontColor=F1F5F9&fontAlignY=38&animation=fadeIn&desc=A%20multi-signal%20phishing%20and%20malicious%20URL%20scanning%20prototype&descAlignY=61&descSize=15" alt="ThreatLens AI animated project banner" width="100%" />
 </p>
+<h1 align="center">ThreatLens AI</h1>
+
 
 <div align="center">
 
