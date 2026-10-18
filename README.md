@@ -1,24 +1,29 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:071B20,50:0F766E,100:0B1220&height=190&section=header&text=ThreatLens%20AI&fontSize=42&fontColor=F1F5F9&fontAlignY=38&animation=fadeIn&desc=A%20multi-signal%20phishing%20and%20malicious%20URL%20scanning%20prototype&descAlignY=61&descSize=15" alt="ThreatLens AI animated project banner" width="100%" />
+  <img src="assets/readme-hero.svg" alt="ThreatLens AI — custom animated project banner" width="100%" />
 </p>
+
 <h1 align="center">ThreatLens AI</h1>
 
+<p align="center">
+  <strong>Multi-signal analysis for suspicious URLs.</strong><br/>
+  A prototype Chrome extension and FastAPI service combining URL lexical signals, VirusTotal lookups and AI-assisted contextual analysis.
+</p>
 
-<div align="center">
+<p align="center">
+  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-Backend-3776AB?style=for-the-badge&amp;logo=python&amp;logoColor=white" alt="Python — Backend" /></a>
+  <a href="https://fastapi.tiangolo.com/"><img src="https://img.shields.io/badge/FastAPI-API-009688?style=for-the-badge&amp;logo=fastapi&amp;logoColor=white" alt="FastAPI — API" /></a>
+  <a href="https://developer.chrome.com/docs/extensions/"><img src="https://img.shields.io/badge/Chrome_extension-Manifest_V3-4285F4?style=for-the-badge&amp;logo=googlechrome&amp;logoColor=white" alt="Chrome extension — Manifest V3" /></a>
+  <a href="https://github.com/tracolerd/ThreatLens-AI"><img src="https://img.shields.io/badge/Threat_intel-VirusTotal_%2B_OpenAI-0F766E?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="Threat intel — VirusTotal + OpenAI" /></a>
+</p>
 
-**AI-Powered Phishing & Malicious URL Scanner**
-
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.110.0-009688.svg?logo=fastapi)](https://fastapi.tiangolo.com/)
-[![Manifest V3](https://img.shields.io/badge/Chrome-Extension-F4B400.svg?logo=google-chrome)](https://developer.chrome.com/docs/extensions/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-A full-stack cybersecurity extension that evaluates URL threats in real-time. It calculates a unified threat score by combining client-side URL lexical analysis, VirusTotal threat intelligence, and OpenAI GPT-4o-mini contextual reasoning.
-
-</div>
+<p align="center">
+  <a href="#project-details">Project details</a> · <a href="#project-setup">Install / run</a> · <a href="#project-architecture">Architecture</a> · <a href="#project-limitations">Security notes</a> · <a href="#creator-developer-maintainer">Creator</a>
+</p>
 
 ---
 
+<a id="project-details"></a>
+<a id="project-architecture"></a>
 ## 🚀 System Architecture
 
 ```mermaid
@@ -39,6 +44,20 @@ sequenceDiagram
     FastAPI Backend-->>Chrome Ext: JSON Response
     Chrome Ext->>User: Display Status (SAFE / SUSPICIOUS / DANGEROUS)
 ```
+<a id="project-limitations"></a>
+## Security boundary and current limitations
+
+This repository is an educational prototype, not a production-ready security service. Source review of the current implementation identified these important boundaries:
+
+- **No authentication or authorization:** the API does not protect its scan endpoint. Do not expose it to untrusted networks.
+- **Broad CORS policy:** the backend allows requests from any origin while also enabling credentials. Restrict this to known UI origins before deployment.
+- **Network exposure by default:** running the backend module starts Uvicorn on `0.0.0.0:8000`; use a trusted local environment and explicitly bind to loopback when remote access is not needed.
+- **Third-party disclosure:** when API keys are configured, submitted URLs and associated analysis data are sent to VirusTotal and OpenAI. Do not scan private or sensitive URLs unless disclosure is authorized and acceptable.
+- **Fallbacks are not a clean verdict:** if OpenAI is not configured, the current service returns a fixed `SUSPICIOUS` fallback score; AI failures also produce a fallback. A missing VirusTotal result must not be interpreted as proof that a URL is safe.
+- **Error hygiene:** the current API forwards exception text in HTTP error responses. Sanitize client-facing errors and log diagnostic details securely before broader use.
+
+Treat every result as a triage signal for human review—not a guarantee that a URL is safe or malicious.
+
 ## ✨ Core Features
 
 * **Real-time Tab Detection**: Automatically pulls the active URL from your Chrome tab using Manifest V3 APIs.
@@ -60,6 +79,7 @@ sequenceDiagram
 
 ---
 
+<a id="project-setup"></a>
 ## ⚙️ Installation & Setup
 
 ### 1. Backend Setup
@@ -122,20 +142,20 @@ Note: URLs sent to the backend are evaluated transiently and are strictly not st
 ---
 ---
 
+---
+
 ## Creator, Developer & Maintainer
 
-**Created, designed, developed, and maintained by [Nurul Faiyaz](https://github.com/tracolerd).**
-
-This project is independently built and maintained by Nurul Faiyaz. The project's design, implementation, and documentation are his work.
+**Created, designed, developed, documented, and maintained independently by [Nurul Faiyaz](https://github.com/tracolerd).**
 
 <p align="center">
-  <a href="https://www.facebook.com/faiyaz.888"><img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" alt="Facebook" /></a>
-  <a href="https://www.instagram.com/tracolerd"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" /></a>
-  <a href="https://www.linkedin.com/in/faiyaz-xyz"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-  <a href="https://x.com/faiyaz_explores"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X" /></a>
-  <a href="https://github.com/tracolerd"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
-  <a href="mailto:scrollfaiyaz@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
-  <a href="https://nurul-faiyaz.netlify.app/"><img src="https://img.shields.io/badge/Portfolio-Visit%20Website-0F766E?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Personal website" /></a>
+  <a href="https://www.facebook.com/faiyaz.888"><img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&amp;logo=facebook&amp;logoColor=white" alt="Facebook" /></a>
+  <a href="https://www.instagram.com/tracolerd"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&amp;logo=instagram&amp;logoColor=white" alt="Instagram" /></a>
+  <a href="https://www.linkedin.com/in/faiyaz-xyz"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white" alt="LinkedIn" /></a>
+  <a href="https://x.com/faiyaz_explores"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&amp;logo=x&amp;logoColor=white" alt="X" /></a>
+  <a href="https://github.com/tracolerd"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="GitHub" /></a>
+  <a href="mailto:scrollfaiyaz@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&amp;logo=gmail&amp;logoColor=white" alt="Email" /></a>
+  <a href="https://nurul-faiyaz.netlify.app/"><img src="https://img.shields.io/badge/Portfolio-Visit%20Website-0F766E?style=for-the-badge&amp;logo=googlechrome&amp;logoColor=white" alt="Website" /></a>
 </p>
 
 <p align="center">
@@ -147,3 +167,7 @@ This project is independently built and maintained by Nurul Faiyaz. The project'
   <a href="mailto:scrollfaiyaz@gmail.com">Email</a> ·
   <a href="https://nurul-faiyaz.netlify.app/">Website</a>
 </p>
+
+## License
+
+See [LICENSE](LICENSE) for the license terms.
