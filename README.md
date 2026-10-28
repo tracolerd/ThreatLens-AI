@@ -171,3 +171,7 @@ Note: URLs sent to the backend are evaluated transiently and are strictly not st
 ## License
 
 See [LICENSE](LICENSE) for the license terms.
+
+---
+
+<p align="center"><sub>Portfolio catalog · Project 02 of 22 · <a href="https://github.com/tracolerd">Nurul Faiyaz</a></sub></p>
